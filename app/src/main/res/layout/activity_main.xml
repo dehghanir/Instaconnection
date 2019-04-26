@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:onClick="after_click_login"
+
         android:text="Instagram Login"
         tools:layout_editor_absoluteX="150dp"
         tools:layout_editor_absoluteY="189dp" />

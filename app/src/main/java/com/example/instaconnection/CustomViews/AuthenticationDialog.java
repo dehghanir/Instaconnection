@@ -10,15 +10,14 @@ import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
-import com.example.login.R;
 import com.example.instaconnection.Constants;
 import com.example.instaconnection.Interfaces.AuthenticationListener;
+import com.example.login.R;
 
 public class AuthenticationDialog extends Dialog {
 
+    private static final android.R.attr R = ;
     private AuthenticationListener listener;
-    private Context context;
-    private WebView webView;
 
     private final String url = Constants.BASE_URL
             +"oauth/authorize/?client_id="
@@ -32,7 +31,7 @@ public class AuthenticationDialog extends Dialog {
 
     public AuthenticationDialog(@NonNull Context context, AuthenticationListener listener) {
         super(context);
-        this.context = context;
+        Context context1 = context;
         this.listener = listener;
     }
 
@@ -44,7 +43,7 @@ public class AuthenticationDialog extends Dialog {
     }
 
     private void initializewebView() {
-        webView = (webView) findViewById(R.id.webView);
+        WebView webView = (WebView) findViewById(R.id.webView);
         webView.loadUrl(url);
         webView.setWebViewClient(new WebViewClient() {
 
@@ -72,9 +71,7 @@ public class AuthenticationDialog extends Dialog {
                      Log.e("access_token","getting error fetching access token");
                      dismiss();
                  }
-
             }
         });
-
     }
 }
